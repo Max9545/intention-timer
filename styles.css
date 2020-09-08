@@ -1,3 +1,8 @@
 body {
-background:  #2B2733;
+  background:  #2B2733;
+  color: white;
+}
+.preselect-image {
+  width:15% ;
+  height:15%;
 }
