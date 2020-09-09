@@ -18,3 +18,27 @@ header{
   height: 3em;
 
 }
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  height: 100px;
+  width: 100px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.new-activity-timer {
+    background-color: #46424D;
+}
+
+.activity-panels {
+    display: flex;
+    flex-direction: row;
+}
