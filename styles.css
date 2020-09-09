@@ -57,5 +57,20 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 10px;
+    padding-top: 20px;
+}
+
+.input-box {
+    color: white;
+    background-color: #46424D;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 100%;
+    padding: 5px;
+}
+
+.start-activity-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 20px;
 }
