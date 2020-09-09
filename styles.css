@@ -1,0 +1,20 @@
+body {
+  background:  #2B2733;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.preselect-image {
+  width:15% ;
+  height:15%;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #46424D;
+  font-family: 'Montserrat';
+  font-size: 1.5em;
+  height: 3em;
+
+}
