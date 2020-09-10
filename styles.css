@@ -77,7 +77,7 @@ header {
     border-bottom: 1px solid white;
     width: 100%;
     padding: 5px;
-    padding-top: 3em;
+    margin-top: 3em;
 }
 .input-box2 {
     color: white;
@@ -86,7 +86,7 @@ header {
     border-bottom: 1px solid white;
     width: 170%;
     padding: 5px;
-        padding-top: 3em;
+    margin-top: 3em;
 }
 .input-box3 {
     color: white;
