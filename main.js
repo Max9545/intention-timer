@@ -8,13 +8,22 @@ var meditateSelectedImage = document.querySelector('.meditate-selected-image');
 var exercisePreselectImage = document.querySelector('.exercise-preselect-image');
 var exerciseSelectedImage = document.querySelector('.exercise-selected-image');
 var studyColors = document.querySelector('.study-colors')
-
+var minBox = document.querySelector('.input-box2')
+var secBox = document.querySelector('.input-box3')
 
 
 study.addEventListener('click', changeStudyColor);
 meditate.addEventListener('click', changeMeditateColor);
 exercise.addEventListener('click', changeExerciseColor);
+minBox.addEventListener('keydown', preventE)
+secBox.addEventListener('keydown', preventE)
 
+function preventE(e) {
+  var invalidCharacters = ['+','-','e','E', '&', '#'];
+  if(invalidCharacters.includes(e.key)) {
+    e.preventDefault();
+  }
+}
 
 function changeStudyColor() {
     addHidden([studyPreselectImage]);
