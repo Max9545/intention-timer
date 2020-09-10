@@ -5,11 +5,38 @@ body {
   padding: 0;
   font-family: 'Montserrat';
 }
+
 p {
   padding: 0;
   margin: 0;
 }
-.preselect-image {
+
+.study-preselect-image {
+  width: 1.5em ;
+  height: 1.5em;
+}
+
+.meditate-preselect-image {
+  width: 1.5em ;
+  height: 1.5em;
+}
+
+.exercise-preselect-image {
+  width: 1.5em ;
+  height: 1.5em;
+}
+
+.study-selected-image {
+  width: 1.5em ;
+  height: 1.5em;
+}
+
+.meditate-selected-image {
+  width: 1.5em ;
+  height: 1.5em;
+}
+
+.exercise-selected-image {
   width: 1.5em ;
   height: 1.5em;
 }
@@ -113,4 +140,8 @@ h2 {
 }
 .seconds-box {
   margin: 0;
+}
+
+.hidden {
+    display: none;
 }
