@@ -26,6 +26,10 @@ function startActivity() {
  activity = new Activity ({});
 }
 
+function formHider() {
+ addHidden();
+}
+
 function preventE(e) {
   var invalidCharacters = ['+','-','e','E', '&', '#'];
   if(invalidCharacters.includes(e.key)) {
