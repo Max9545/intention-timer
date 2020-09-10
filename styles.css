@@ -3,11 +3,15 @@ body {
   color: white;
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat';
 }
-
+p {
+  padding: 0;
+  margin: 0;
+}
 .preselect-image {
-  width:15% ;
-  height:15%;
+  width: 1.5em ;
+  height: 1.5em;
 }
 
 header {
@@ -15,7 +19,6 @@ header {
   align-items: center;
   justify-content: center;
   background: #46424D;
-  font-family: 'Montserrat';
   font-size: 1.5em;
   height: 3em;
 }
@@ -24,23 +27,28 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border: 1px solid;
-  height: 100px;
-  width: 100px;
+  border-radius: 5%;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1.2em;
 }
 
 .categories {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 2em;
+    justify-content: space-between;
+    margin-bottom: 5em;
 }
 
 .new-activity-timer {
     display: flex;
     background-color: #46424D;
     padding: 4em;
-    padding-top: 2em;
+    padding-top: 3em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .activity-panels {
@@ -50,27 +58,59 @@ header {
 
 .past-activities {
     display: flex;
-    border: solid 1px;
+    border-left: solid 3px;
+    border-color: #46424D;
+    height: 70em;
 }
 
 .minutes-seconds {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 5em;
 }
 
-.input-box {
+.input-box1 {
     color: white;
     background-color: #46424D;
     border: none;
     border-bottom: 1px solid white;
     width: 100%;
     padding: 5px;
+    padding-top: 3em;
 }
-
-.start-activity-btn {
+.input-box2 {
+    color: white;
+    background-color: #46424D;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 170%;
+    padding: 5px;
+        padding-top: 3em;
+}
+.input-box3 {
+    color: white;
+    background-color: #46424D;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 100%;
+    padding: 5px;
+    margin-right: 5em;
+    padding-top: 3em;
+}
+.start-box-div {
     display: flex;
     flex-direction: row-reverse;
-    padding-top: 20px;
+    padding-top: 5em;
+}
+.start-btn {
+  border: none;
+  border-radius: 5%;
+  padding: 1.2em;
+}
+h2 {
+  margin-left: 1.2em;
+}
+.seconds-box {
+  margin: 0;
 }
