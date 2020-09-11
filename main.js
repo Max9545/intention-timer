@@ -11,6 +11,8 @@ var studyColors = document.querySelector('.study-colors');
 var minBox = document.querySelector('.input-box2');
 var secBox = document.querySelector('.input-box3');
 var startButton = document.querySelector('.start-btn');
+var currentActivity = document.querySelector('.current-activity');
+var newActivityBox = document.querySelector('.new-activity-box');
 
 var activity;
 
@@ -22,12 +24,14 @@ secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
 
 function startActivity() {
+  formHider();
   console.log('hi');
  activity = new Activity ({});
 }
 
 function formHider() {
- addHidden();
+ addHidden([newActivityBox]);
+ removeHidden([currentActivity]);
 }
 
 function preventE(e) {
