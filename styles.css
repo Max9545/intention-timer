@@ -112,7 +112,7 @@ header {
     margin-right: 2em;
 }
 
-.activity-panels {
+.activity-panel {
     display: flex;
     flex-direction: row;
 }

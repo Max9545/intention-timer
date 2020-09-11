@@ -7,16 +7,32 @@ var meditatePreselectImage = document.querySelector('.meditate-preselect-image')
 var meditateSelectedImage = document.querySelector('.meditate-selected-image');
 var exercisePreselectImage = document.querySelector('.exercise-preselect-image');
 var exerciseSelectedImage = document.querySelector('.exercise-selected-image');
-var studyColors = document.querySelector('.study-colors')
-var minBox = document.querySelector('.input-box2')
-var secBox = document.querySelector('.input-box3')
+var studyColors = document.querySelector('.study-colors');
+var minBox = document.querySelector('.input-box2');
+var secBox = document.querySelector('.input-box3');
+var startButton = document.querySelector('.start-btn');
+var currentActivity = document.querySelector('.current-activity');
+var newActivityBox = document.querySelector('.new-activity-box');
 
+var activity;
 
 study.addEventListener('click', changeStudyColor);
 meditate.addEventListener('click', changeMeditateColor);
 exercise.addEventListener('click', changeExerciseColor);
-minBox.addEventListener('keydown', preventE)
-secBox.addEventListener('keydown', preventE)
+minBox.addEventListener('keydown', preventE);
+secBox.addEventListener('keydown', preventE);
+startButton.addEventListener('click',startActivity);
+
+function startActivity() {
+  formHider();
+  console.log('hi');
+ activity = new Activity ({});
+}
+
+function formHider() {
+ addHidden([newActivityBox]);
+ removeHidden([currentActivity]);
+}
 
 function preventE(e) {
   var invalidCharacters = ['+','-','e','E', '&', '#'];
@@ -29,31 +45,31 @@ function changeStudyColor() {
     addHidden([studyPreselectImage]);
     removeHidden([studySelectedImage]);
     addStudyColor([study]);
-};
+}
 
 function changeMeditateColor() {
     addHidden([meditatePreselectImage]);
     removeHidden([meditateSelectedImage]);
     addMeditateColor([meditate]);
-};
+}
 
 function changeExerciseColor() {
     addHidden([exercisePreselectImage]);
     removeHidden([exerciseSelectedImage]);
     addExerciseColor([exercise]);
-};
+}
 
 function addHidden(elements) {
     for(var i = 0; i < elements.length; i++) {
         elements[i].classList.add('hidden');
     }
-};
+}
 
 function removeHidden(elements) {
     for(var i = 0; i < elements.length; i++) {
         elements[i].classList.remove('hidden');
     }
-};
+}
 
 function addStudyColor(elements) {
   for(var i = 0; i < elements.length; i++) {
