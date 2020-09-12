@@ -8,11 +8,15 @@ var meditateSelectedImage = document.querySelector('.meditate-selected-image');
 var exercisePreselectImage = document.querySelector('.exercise-preselect-image');
 var exerciseSelectedImage = document.querySelector('.exercise-selected-image');
 var studyColors = document.querySelector('.study-colors');
+var goalBox = document.querySelector('.input-box1');
 var minBox = document.querySelector('.input-box2');
 var secBox = document.querySelector('.input-box3');
 var startButton = document.querySelector('.start-btn');
 var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
+var goal = document.querySelector('.place-holder');
+var startTimerButton = document.querySelector('.start-button');
+var timer = document.querySelector('#timer');
 
 var activity;
 
@@ -22,11 +26,13 @@ exercise.addEventListener('click', changeExerciseColor);
 minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
+startTimerButton.addEventListener('click', countdown);
 
 function startActivity() {
-  formHider();
-  console.log('hi');
+ formHider();
  activity = new Activity ({});
+ displayGoal();
+ displayTime();
 }
 
 function formHider() {
@@ -85,4 +91,32 @@ function addExerciseColor(elements) {
   for(var i = 0; i < elements.length; i++) {
     elements[i].classList.add('exercise-colors');
   }
+}
+
+function displayGoal() {
+    goal.innerText = goalBox.value;
+}
+
+function displayTime() {
+    timer.innerText = minBox.value + ':' + (secBox.value < 10 ? "0" : "") + secBox.value;
+}
+
+function countdown(minutes, seconds) {
+    var seconds = seconds;
+    var mins = minutes;
+    function tick() {
+        var timer = document.getElementById("timer");
+        var current_minutes = mins;
+        seconds--;
+        timer.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            if(mins > 1){
+                countdown(mins, seconds);
+            }
+        }
+    }
+    tick();
+    countdown(minBox.value, secBox.value);
 }
