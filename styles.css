@@ -116,17 +116,31 @@ header {
     display: flex;
     background-color: #46424D;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 0;
+    align-items: center;
+    padding: 4em;
     margin-left: 2em;
     margin-right: 2em;
 }
 
+.place-holder {
+    font-size: 1.5em;
+    margin: 2em;
+    margin-bottom: 1em;
+}
+
+#timer {
+    font-size: 3em;
+}
+
 .start-button {
-    height: 5em;
-    width: 5em;
+    height: 15em;
+    width: 15em;
+    color: white;
+    background-color: #46424D;
     border-radius: 50%;
+    border: 2px solid;
+    margin: 2em;
 }
 
 .activity-panel {
