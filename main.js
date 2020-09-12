@@ -16,6 +16,7 @@ var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
 var startTimerButton = document.querySelector('.start-button');
+var timer = document.querySelector('#timer');
 
 var activity;
 
@@ -31,6 +32,7 @@ function startActivity() {
  formHider();
  activity = new Activity ({});
  displayGoal();
+ displayTime();
 }
 
 function formHider() {
@@ -95,25 +97,26 @@ function displayGoal() {
     goal.innerText = goalBox.value;
 }
 
+function displayTime() {
+    timer.innerText = minBox.value + ':' + (secBox.value < 10 ? "0" : "") + secBox.value;
+}
+
 function countdown(minutes, seconds) {
     var seconds = seconds;
     var mins = minutes;
     function tick() {
-        //This script expects an element with an ID = "counter". You can change that to what ever you want. 
         var timer = document.getElementById("timer");
-        var current_minutes = mins-1;
+        var current_minutes = mins;
         seconds--;
         timer.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else {
             if(mins > 1){
-                countdown(mins-1, seconds-1);
+                countdown(mins, seconds);
             }
         }
     }
     tick();
     countdown(minBox.value, secBox.value);
 }
-//You can use this script with a call to onclick, onblur or any other attribute you would like to use. 
-//countdown(n);//where n is the number of minutes required.
