@@ -51,18 +51,21 @@ function changeStudyColor() {
     addHidden([studyPreselectImage]);
     removeHidden([studySelectedImage]);
     addStudyColor([study]);
+    startTimerButton.classList.add('study-colors');
 }
 
 function changeMeditateColor() {
     addHidden([meditatePreselectImage]);
     removeHidden([meditateSelectedImage]);
     addMeditateColor([meditate]);
+    startTimerButton.classList.add('meditate-colors');
 }
 
 function changeExerciseColor() {
     addHidden([exercisePreselectImage]);
     removeHidden([exerciseSelectedImage]);
     addExerciseColor([exercise]);
+    startTimerButton.classList.add('exercise-colors');
 }
 
 function addHidden(elements) {
@@ -101,22 +104,27 @@ function displayTime() {
     timer.innerText = minBox.value + ':' + (secBox.value < 10 ? "0" : "") + secBox.value;
 }
 
-function countdown(minutes, seconds) {
-    var seconds = seconds;
-    var mins = minutes;
-    function tick() {
-        var timer = document.getElementById("timer");
-        var current_minutes = mins;
-        seconds--;
-        timer.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-        if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else {
-            if(mins > 1){
-                countdown(mins, seconds);
-            }
-        }
+function countdown() {
+  var time = document.getElementById('timer');
+  var seconds = time.textContent.split(':')[1];
+  var minutes = time.textContent.split(':')[0];
+  var interval = setInterval(function() {
+    if (seconds <= 0 && minutes <=0) {
+      stopTimer(interval);
+      startTimerButton.innerText = 'COMPLETE';
+      alert('Way to go Cowboy!');
+    } else if (seconds <= 0 && minutes > 0) {
+    minutes--;
+    seconds+= 59;
+    } else {
+    seconds--;
     }
-    tick();
-    countdown(minBox.value, secBox.value);
+    renderTime(time, seconds, minutes);
+  }, 1000)
+}
+function renderTime(time, seconds, minutes) {
+  time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+};
+function stopTimer(interval) {
+  clearInterval(interval);
 }
