@@ -51,18 +51,21 @@ function changeStudyColor() {
     addHidden([studyPreselectImage]);
     removeHidden([studySelectedImage]);
     addStudyColor([study]);
+    startTimerButton.classList.add('study-colors');
 }
 
 function changeMeditateColor() {
     addHidden([meditatePreselectImage]);
     removeHidden([meditateSelectedImage]);
     addMeditateColor([meditate]);
+    startTimerButton.classList.add('meditate-colors');
 }
 
 function changeExerciseColor() {
     addHidden([exercisePreselectImage]);
     removeHidden([exerciseSelectedImage]);
     addExerciseColor([exercise]);
+    startTimerButton.classList.add('exercise-colors');
 }
 
 function addHidden(elements) {
