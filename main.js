@@ -21,6 +21,7 @@ var logActivity = document.querySelector('.log-activity');
 var pastActivities = document.querySelector('.past-activities');
 
 
+
 var activity;
 
 study.addEventListener('click', changeStudyColor);
@@ -150,6 +151,13 @@ function stopTimer(interval) {
   clearInterval(interval);
 }
 function displayLogActivity() {
+  var pastHold1 = document.querySelector('.past-holder-p1');
+
+  var pastHold2 = document.querySelector('.past-holder-p2');
+
+  pastHold1.classList.add('hidden');
+  pastHold2.classList.add('hidden');
+
   pastActivities.insertAdjacentHTML('beforeend', `<div class="past-cards">
   <p class='logged-catagory'>Catagory</p>
   <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>

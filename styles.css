@@ -250,3 +250,13 @@ h2 {
 .logged-goals {
   margin-left: 20px;
 }
+.past-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  flex-direction: column;
+}
+.past-holder-p2 {
+  margin-top: .5em;
+}
