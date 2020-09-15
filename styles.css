@@ -134,10 +134,12 @@ header {
     margin-bottom: 1em;
 }
 
-#timer {
+.timer {
     font-size: 3em;
 }
-
+.completion-message {
+  font-size: 2em;
+}
 .start-button {
     height: 15em;
     width: 15em;

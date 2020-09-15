@@ -16,7 +16,7 @@ var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
 var startTimerButton = document.querySelector('.start-button');
-var timer = document.querySelector('#timer');
+var timer = document.querySelector('.timer');
 
 var activity;
 
@@ -118,14 +118,16 @@ function displayTime() {
 }
 
 function countdown() {
-  var time = document.getElementById('timer');
+  var time = document.querySelector('.timer');
+  var completionMessage = document.querySelector('.completion-message');
   var seconds = time.textContent.split(':')[1];
   var minutes = time.textContent.split(':')[0];
   var interval = setInterval(function() {
     if (seconds <= 0 && minutes <=0) {
       stopTimer(interval);
       startTimerButton.innerText = 'COMPLETE';
-      alert('Way to go Cowboy!');
+      time.classList.add('hidden');
+      completionMessage.classList.remove('hidden');
     } else if (seconds <= 0 && minutes > 0) {
     minutes--;
     seconds+= 59;
@@ -135,6 +137,7 @@ function countdown() {
     renderTime(time, seconds, minutes);
   }, 1000)
 }
+
 function renderTime(time, seconds, minutes) {
   time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 };
