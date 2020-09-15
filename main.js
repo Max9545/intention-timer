@@ -35,11 +35,11 @@ function startActivity() {
  }
  else if (minBox.value === '') {
      var minError = document.querySelector('.min-error');
-     minError.innerText = 'You need a number of minutes!';
+     minError.innerHTML = '<p><img class="error-triangle" src="assets/warning.svg"> You need a number of minutes!</p>';
  }
  else if (secBox.value === '') {
      var secError = document.querySelector('.sec-error');
-     secError.innerText = 'You need a number of seconds!';
+     secError.innerHTML = '<p><img class="error-triangle" src="assets/warning.svg"> You need a number of seconds!</p>';
  } else {
      formHider();
      activity = new Activity ({});
