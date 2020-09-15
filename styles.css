@@ -121,21 +121,25 @@ header {
     padding: 4em;
     margin-left: 2em;
     margin-right: 2em;
+    width: 35em;
+    height: 35em;
 }
 
 .place-holder {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 2em;
     margin-bottom: 1em;
 }
 
 #timer {
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: bold;
 }
 
 .start-button {
-    height: 15em;
-    width: 15em;
+    font-size: 2em;;
+    height: 9em;
+    width: 7em;
     background-color: #46424D;
     border-radius: 50%;
     border: 2px solid;

@@ -29,6 +29,8 @@ startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
 
 function startActivity() {
+
+ fieldChecker();
  formHider();
  activity = new Activity ({});
  displayGoal();
@@ -124,7 +126,26 @@ function countdown() {
 }
 function renderTime(time, seconds, minutes) {
   time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-};
+}
 function stopTimer(interval) {
   clearInterval(interval);
+}
+function fieldChecker() {
+  var secError = document.getElementById('sec-error');
+  var minError = document.getElementById('min-error');
+  var goalError = document.getElementById('goal-error');
+  // var ;
+  if(goalBox.value === ''){
+      event.preventDefault();
+    goalError.innerText = " Sorry, but you need a goal! ";
+    // goalBox.innerText = 'Sorry, but you need a goal!';
+  } else if(minBox.value === ''){
+    event.preventDefault();
+    minError.innerText = "Sorry, but you need some seconds... Or none at all!";
+    // minBox.innerText = 'Sorry, but you need some minutes... Or none at all!';
+  } else if(secBox.value === ''){
+    event.preventDefault();
+    secError.innerText = " Sorry, but you need some seconds... Or none at all! ";
+    // secError.innerText = 'Sorry, but you need some seconds... Or none at all!';
+  }
 }
