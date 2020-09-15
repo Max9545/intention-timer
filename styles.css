@@ -126,6 +126,8 @@ header {
     padding: 4em;
     margin-left: 2em;
     margin-right: 2em;
+    border-radius: 5px;
+
 }
 
 .place-holder {
@@ -134,10 +136,18 @@ header {
     margin-bottom: 1em;
 }
 
-#timer {
+.timer {
     font-size: 3em;
 }
+.completion-message {
+  font-size: 2em;
+}
 
+.log-activity {
+  font-style: 'Montserrat';
+  width: 14em;
+  height: 4em;
+}
 .start-button {
     height: 15em;
     width: 15em;
@@ -154,6 +164,7 @@ header {
 
 .past-activities {
     display: flex;
+    flex-direction: column;
     border-left: solid 3px;
     border-color: #46424D;
     height: 70em;
@@ -216,4 +227,36 @@ h2 {
 
 .hidden {
     display: none;
+}
+.past-cards {
+  background-color: #46424D;
+  width: 20em;
+  height: 6.5em;
+  margin-left: 2em;
+  font-style: 'Montserrat';
+  border-radius: 5px;
+}
+.logged-catagory {
+  font-weight: bold;
+  margin-bottom:.5em;
+  margin-left: 20px;
+  margin-top:.5em;
+}
+.logged-times {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  margin-left: 20px;
+}
+.logged-goals {
+  margin-left: 20px;
+}
+.past-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  flex-direction: column;
+}
+.past-holder-p2 {
+  margin-top: .5em;
 }

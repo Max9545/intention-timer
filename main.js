@@ -16,7 +16,11 @@ var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
 var startTimerButton = document.querySelector('.start-button');
-var timer = document.querySelector('#timer');
+var timer = document.querySelector('.timer');
+var logActivity = document.querySelector('.log-activity');
+var pastActivities = document.querySelector('.past-activities');
+
+
 
 var activity;
 
@@ -27,6 +31,7 @@ minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
+logActivity.addEventListener('click', displayLogActivity)
 
 function startActivity() {
  if (goalBox.value === '') {
@@ -118,14 +123,17 @@ function displayTime() {
 }
 
 function countdown() {
-  var time = document.getElementById('timer');
+  var time = document.querySelector('.timer');
+  var completionMessage = document.querySelector('.completion-message');
   var seconds = time.textContent.split(':')[1];
   var minutes = time.textContent.split(':')[0];
   var interval = setInterval(function() {
     if (seconds <= 0 && minutes <=0) {
       stopTimer(interval);
       startTimerButton.innerText = 'COMPLETE';
-      alert('Way to go Cowboy!');
+      time.classList.add('hidden');
+      completionMessage.classList.remove('hidden');
+      logActivity.classList.remove('hidden');
     } else if (seconds <= 0 && minutes > 0) {
     minutes--;
     seconds+= 59;
@@ -135,9 +143,23 @@ function countdown() {
     renderTime(time, seconds, minutes);
   }, 1000)
 }
+
 function renderTime(time, seconds, minutes) {
   time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 };
 function stopTimer(interval) {
   clearInterval(interval);
+}
+function displayLogActivity() {
+  var pastHold1 = document.querySelector('.past-holder-p1');
+
+  var pastHold2 = document.querySelector('.past-holder-p2');
+
+  pastHold1.classList.add('hidden');
+  pastHold2.classList.add('hidden');
+
+  pastActivities.insertAdjacentHTML('beforeend', `<div class="past-cards">
+  <p class='logged-catagory'>Catagory</p>
+  <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
+  <p class='logged-goals'>${goalBox.value}</p>`)
 }
