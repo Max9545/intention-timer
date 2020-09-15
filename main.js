@@ -114,7 +114,7 @@ function countdown() {
     if (seconds <= 0 && minutes <=0) {
       stopTimer(interval);
       startTimerButton.innerText = 'COMPLETE';
-      alert('Way to go Cowboy!');
+      time.innerText = 'Way to go Cowboy!';
     } else if (seconds <= 0 && minutes > 0) {
     minutes--;
     seconds+= 59;
