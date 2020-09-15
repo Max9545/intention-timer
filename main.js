@@ -29,10 +29,23 @@ startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
 
 function startActivity() {
- formHider();
- activity = new Activity ({});
- displayGoal();
- displayTime();
+ if (goalBox.value === '') {
+     var goalError = document.querySelector('.goal-error');
+     goalError.innerHTML = '<p><img class="error-triangle" src="assets/warning.svg"> You need a goal!</p>';
+ }
+ else if (minBox.value === '') {
+     var minError = document.querySelector('.min-error');
+     minError.innerHTML = '<p><img class="error-triangle" src="assets/warning.svg"> You need a number of minutes!</p>';
+ }
+ else if (secBox.value === '') {
+     var secError = document.querySelector('.sec-error');
+     secError.innerHTML = '<p><img class="error-triangle" src="assets/warning.svg"> You need a number of seconds!</p>';
+ } else {
+     formHider();
+     activity = new Activity ({});
+     displayGoal();
+     displayTime();
+  }
 }
 
 function formHider() {
