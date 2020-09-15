@@ -17,6 +17,9 @@ var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
 var startTimerButton = document.querySelector('.start-button');
 var timer = document.querySelector('.timer');
+var logActivity = document.querySelector('.log-activity');
+var pastActivities = document.querySelector('.past-activities');
+
 
 var activity;
 
@@ -27,6 +30,7 @@ minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
+logActivity.addEventListener('click', displayLogActivity)
 
 function startActivity() {
  if (goalBox.value === '') {
@@ -128,6 +132,7 @@ function countdown() {
       startTimerButton.innerText = 'COMPLETE';
       time.classList.add('hidden');
       completionMessage.classList.remove('hidden');
+      logActivity.classList.remove('hidden');
     } else if (seconds <= 0 && minutes > 0) {
     minutes--;
     seconds+= 59;
@@ -143,4 +148,10 @@ function renderTime(time, seconds, minutes) {
 };
 function stopTimer(interval) {
   clearInterval(interval);
+}
+function displayLogActivity() {
+  pastActivities.insertAdjacentHTML('beforeend', `<div class="past-cards">
+  <p class='logged-catagory'>Catagory</p>
+  <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
+  <p class='logged-goals'>${goalBox.value}</p>`)
 }
