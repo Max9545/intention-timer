@@ -23,8 +23,7 @@ var pastCards = document.querySelector('.past-cards');
 var loggedCategory = document.querySelector('.logged-category');
 var loggedTimes = document.querySelector('.logged-times');
 var loggedGoals = document.querySelector('.logged-goals');
-
-
+var colorIndicator = document.querySelector('.color-indicator');
 
 var activity;
 
@@ -77,6 +76,7 @@ function changeStudyColor() {
     addStudyColor([study]);
     startTimerButton.classList.add('study-colors');
     loggedCategory.textContent = 'Study';
+    colorIndicator.classList.add('study-colors');
 }
 
 function changeMeditateColor() {
@@ -85,6 +85,7 @@ function changeMeditateColor() {
     addMeditateColor([meditate]);
     startTimerButton.classList.add('meditate-colors');
     loggedCategory.textContent = 'Meditate';
+    colorIndicator.classList.add('meditate-colors');
 }
 
 function changeExerciseColor() {
@@ -93,6 +94,7 @@ function changeExerciseColor() {
     addExerciseColor([exercise]);
     startTimerButton.classList.add('exercise-colors');
     loggedCategory.textContent = 'Exercise';
+    colorIndicator.classList.add('exercise-colors');
 }
 
 function addHidden(elements) {
@@ -112,11 +114,13 @@ function addStudyColor(elements) {
     elements[i].classList.add('study-colors');
   }
 }
+
 function addMeditateColor(elements) {
   for(var i = 0; i < elements.length; i++) {
     elements[i].classList.add('meditate-colors');
   }
 }
+
 function addExerciseColor(elements) {
   for(var i = 0; i < elements.length; i++) {
     elements[i].classList.add('exercise-colors');
@@ -155,10 +159,12 @@ function countdown() {
 
 function renderTime(time, seconds, minutes) {
   time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-};
+}
+
 function stopTimer(interval) {
   clearInterval(interval);
 }
+
 function displayLogActivity() {
   var pastHold1 = document.querySelector('.past-holder-p1');
 
@@ -167,15 +173,4 @@ function displayLogActivity() {
   pastHold1.classList.add('hidden');
   pastHold2.classList.add('hidden');
   pastCards.classList.remove('hidden');
-    
-  
-//  pastActivities.insertAdjacentHTML('beforeend', `<div class="past-cards">
-//  <p class='logged-category'></p>
-//  <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
-//  <p class='logged-goals'>${goalBox.value}</p>
-//  </div>`)
-//    
-//  loggedCategory.textContent = `Study`;
-//  loggedTimes.textContent = `${minBox.value} MIN ${secBox.value} SECONDS`;
-//  loggedCategory.textContent = `${goalBox.value}`;
 }
