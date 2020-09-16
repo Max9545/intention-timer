@@ -27,7 +27,7 @@ var loggedCategory = document.querySelector('.logged-category');
 var loggedTimes = document.querySelector('.logged-times');
 var loggedGoals = document.querySelector('.logged-goals');
 var colorIndicator = document.querySelector('.color-indicator');
-var leftHeader = document.querySelector('#left-header')
+var leftHeader = document.querySelector('#left-header');
 var createNewButton = document.querySelector('.create-new-activity');
 
 var activity;
@@ -173,7 +173,6 @@ function stopTimer(interval) {
 
 function displayLogActivity() {
   var pastHold1 = document.querySelector('.past-holder-p1');
-
   var pastHold2 = document.querySelector('.past-holder-p2');
 
   pastHold1.classList.add('hidden');
@@ -182,12 +181,17 @@ function displayLogActivity() {
   currentActivityBox.classList.add('hidden');
   createNewBox.classList.remove('hidden');
   leftHeader.innerText = 'Completed Activity';
+
+  var stringifyPastCards = JSON.stringify('pastCards');
+  localStorage.setItem('cards', stringifyPastCards);
+  var retrievedPastCards = localStorage.getItem('cards');
+  var parsedPastCards = JSON.parse(retrievedPastCards);
 }
 function goHome() {
   createNewButton.classList.add('hidden');
   newActivityBox.classList.remove('hidden');
   createNewBox.classList.add('hidden');
-  leftHeader.classList.add('hidden')
+  leftHeader.classList.add('hidden');
   goalBox.value = "";
   minBox.value = "";
   secBox.value = "";
