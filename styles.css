@@ -228,15 +228,20 @@ h2 {
 .hidden {
     display: none;
 }
+.card-text {
+  font-style: 'Montserrat';
+}
 .past-cards {
+/*  display: flex;*/
+  flex-direction: row;
+  justify-content: space-between;
   background-color: #46424D;
   width: 20em;
   height: 6.5em;
   margin-left: 2em;
-  font-style: 'Montserrat';
   border-radius: 5px;
 }
-.logged-catagory {
+.logged-category {
   font-weight: bold;
   margin-bottom:.5em;
   margin-left: 20px;
@@ -249,6 +254,13 @@ h2 {
 }
 .logged-goals {
   margin-left: 20px;
+}
+.color-indicator {
+  font-weight: bolder;
+  font-size: 2em;
+  font-style: 'Montserrat';
+  margin-left: 9.3em;
+  margin-top: -2.75em;
 }
 .past-holder {
   display: flex;

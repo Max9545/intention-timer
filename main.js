@@ -1,4 +1,3 @@
-var categories = document.querySelector('.categories');
 var study = document.querySelector('.box-study');
 var meditate = document.querySelector('.box-meditate');
 var exercise = document.querySelector('.box-exercise');
@@ -20,9 +19,11 @@ var startTimerButton = document.querySelector('.start-button');
 var timer = document.querySelector('.timer');
 var logActivity = document.querySelector('.log-activity');
 var pastActivities = document.querySelector('.past-activities');
-var loggedCategory = document.querySelector('.logged-catagory');
-
-
+var pastCards = document.querySelector('.past-cards');
+var loggedCategory = document.querySelector('.logged-category');
+var loggedTimes = document.querySelector('.logged-times');
+var loggedGoals = document.querySelector('.logged-goals');
+var colorIndicator = document.querySelector('.color-indicator');
 
 var activity;
 
@@ -33,8 +34,7 @@ minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
-logActivity.addEventListener('click', displayLogActivity);
-categories.addEventListener('click', categoryDisplayer);
+logActivity.addEventListener('click', displayLogActivity)
 
 function startActivity() {
  if (goalBox.value === '') {
@@ -53,7 +53,8 @@ function startActivity() {
      activity = new Activity ({});
      displayGoal();
      displayTime();
-     categoryDisplayer();
+     loggedTimes.textContent = `${minBox.value} MIN ${secBox.value} SECONDS`;
+     loggedGoals.textContent = `${goalBox.value}`;
   }
 }
 
@@ -74,6 +75,8 @@ function changeStudyColor() {
     removeHidden([studySelectedImage]);
     addStudyColor([study]);
     startTimerButton.classList.add('study-colors');
+    loggedCategory.textContent = 'Study';
+    colorIndicator.classList.add('study-colors');
 }
 
 function changeMeditateColor() {
@@ -81,6 +84,8 @@ function changeMeditateColor() {
     removeHidden([meditateSelectedImage]);
     addMeditateColor([meditate]);
     startTimerButton.classList.add('meditate-colors');
+    loggedCategory.textContent = 'Meditate';
+    colorIndicator.classList.add('meditate-colors');
 }
 
 function changeExerciseColor() {
@@ -88,6 +93,8 @@ function changeExerciseColor() {
     removeHidden([exerciseSelectedImage]);
     addExerciseColor([exercise]);
     startTimerButton.classList.add('exercise-colors');
+    loggedCategory.textContent = 'Exercise';
+    colorIndicator.classList.add('exercise-colors');
 }
 
 function addHidden(elements) {
@@ -107,11 +114,13 @@ function addStudyColor(elements) {
     elements[i].classList.add('study-colors');
   }
 }
+
 function addMeditateColor(elements) {
   for(var i = 0; i < elements.length; i++) {
     elements[i].classList.add('meditate-colors');
   }
 }
+
 function addExerciseColor(elements) {
   for(var i = 0; i < elements.length; i++) {
     elements[i].classList.add('exercise-colors');
@@ -151,9 +160,11 @@ function countdown() {
 function renderTime(time, seconds, minutes) {
   time.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
+
 function stopTimer(interval) {
   clearInterval(interval);
 }
+
 function displayLogActivity() {
   var pastHold1 = document.querySelector('.past-holder-p1');
 
@@ -161,34 +172,5 @@ function displayLogActivity() {
 
   pastHold1.classList.add('hidden');
   pastHold2.classList.add('hidden');
-
-  pastActivities.insertAdjacentHTML('beforeend', `<div class="past-cards">
-  <p class='logged-catagory'>Category</p>
-  <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
-  <p class='logged-goals'>${goalBox.value}</p>`);
-}
-
-// fill out the cout card when category is chosen
-// get chosen category to pop up with mini goals cant be seen yet
-//  display log activity
-
-
-function categoryDisplayer() {
-
-  if(event.target.className === 'box-study') {
-    pastActivities.insertAdjacentHTML( 'beforeend', `<div class="past-cards">
-    <p class='logged-catagory'>Study</p>;
-    <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
-    <p class='logged-goals'>${goalBox.value}</p>`);
-  } else if(event.target.className === 'box-meditate') {
-    pastActivities.insertAdjacentHTML( 'beforeend', `<div class="past-cards">
-    <p class='logged-catagory'>Meditate</p>;
-    <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
-    <p class='logged-goals'>${goalBox.value}</p>`);
-  } else if(event.target.className === 'box-exercise') {
-    pastActivities.insertAdjacentHTML( 'beforeend', `<div class="past-cards">
-    <p class='logged-catagory'>Exercise</p>;
-    <p class='logged-times'>${minBox.value} MIN ${secBox.value} SECONDS</p>
-    <p class='logged-goals'>${goalBox.value}</p>`);
-  }
+  pastCards.classList.remove('hidden');
 }
