@@ -191,4 +191,9 @@ function goHome() {
   goalBox.value = "";
   minBox.value = "";
   secBox.value = "";
+  study.classList.remove('study-colors');
+  meditate.classList.remove('meditate-colors');
+  exercise.classList.remove('exercise-colors');
+  addHidden([studySelectedImage, meditateSelectedImage, exerciseSelectedImage]);
+  removeHidden([studyPreselectImage, meditatePreselectImage, exercisePreselectImage]);
 }
