@@ -129,6 +129,21 @@ header {
     border-radius: 5px;
 
 }
+.create-new-box {
+  display: flex;
+  background-color: #46424D;
+  padding: 7em;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-radius: 5px;
+  height: 22em;
+}
+.create-new-activity {
+  font-style: 'Montserrat';
+  width: 20em;
+  height: 4em;
+}
+}
 
 .place-holder {
     font-size: 1.5em;
@@ -148,6 +163,8 @@ header {
   width: 14em;
   height: 4em;
 }
+
+
 .start-button {
     height: 15em;
     width: 15em;

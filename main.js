@@ -12,6 +12,9 @@ var goalBox = document.querySelector('.input-box1');
 var minBox = document.querySelector('.input-box2');
 var secBox = document.querySelector('.input-box3');
 var startButton = document.querySelector('.start-btn');
+var currentActivityBox = document.querySelector('.current-activity-box');
+var createNewBox = document.querySelector('.create-new-box');
+
 var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
@@ -24,6 +27,8 @@ var loggedCategory = document.querySelector('.logged-category');
 var loggedTimes = document.querySelector('.logged-times');
 var loggedGoals = document.querySelector('.logged-goals');
 var colorIndicator = document.querySelector('.color-indicator');
+var leftHeader = document.querySelector('#left-header')
+var createNewButton = document.querySelector('.create-new-activity');
 
 var activity;
 
@@ -34,7 +39,8 @@ minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
 startButton.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
-logActivity.addEventListener('click', displayLogActivity)
+logActivity.addEventListener('click', displayLogActivity);
+createNewButton.addEventListener('click', goHome)
 
 function startActivity() {
  if (goalBox.value === '') {
@@ -173,4 +179,21 @@ function displayLogActivity() {
   pastHold1.classList.add('hidden');
   pastHold2.classList.add('hidden');
   pastCards.classList.remove('hidden');
+  currentActivityBox.classList.add('hidden');
+  createNewBox.classList.remove('hidden');
+  leftHeader.innerText = 'Completed Activity';
+}
+function goHome() {
+  createNewButton.classList.add('hidden');
+  newActivityBox.classList.remove('hidden');
+  createNewBox.classList.add('hidden');
+  leftHeader.classList.add('hidden')
+  goalBox.value = "";
+  minBox.value = "";
+  secBox.value = "";
+  study.classList.remove('study-colors');
+  meditate.classList.remove('meditate-colors');
+  exercise.classList.remove('exercise-colors');
+  addHidden([studySelectedImage, meditateSelectedImage, exerciseSelectedImage]);
+  removeHidden([studyPreselectImage, meditatePreselectImage, exercisePreselectImage]);
 }
