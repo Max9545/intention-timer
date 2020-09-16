@@ -12,6 +12,8 @@ var goalBox = document.querySelector('.input-box1');
 var minBox = document.querySelector('.input-box2');
 var secBox = document.querySelector('.input-box3');
 var startButton = document.querySelector('.start-btn');
+var currentActivityBox = document.querySelector('.current-activity-box');
+var createNewBox = document.querySelector('.create-new-box');
 var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
@@ -24,6 +26,7 @@ var loggedCategory = document.querySelector('.logged-category');
 var loggedTimes = document.querySelector('.logged-times');
 var loggedGoals = document.querySelector('.logged-goals');
 var colorIndicator = document.querySelector('.color-indicator');
+var leftHeader = document.querySelector('#left-header')
 
 var activity;
 
@@ -173,4 +176,7 @@ function displayLogActivity() {
   pastHold1.classList.add('hidden');
   pastHold2.classList.add('hidden');
   pastCards.classList.remove('hidden');
+  currentActivityBox.classList.add('hidden');
+  createNewBox.classList.remove('hidden');
+  leftHeader.innerText = 'Completed Activity';
 }
