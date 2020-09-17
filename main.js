@@ -11,10 +11,9 @@ var studyColors = document.querySelector('.study-colors');
 var goalBox = document.querySelector('.input-box1');
 var minBox = document.querySelector('.input-box2');
 var secBox = document.querySelector('.input-box3');
-var startButton = document.querySelector('.start-btn');
+var setActivity = document.querySelector('.set-activity');
 var currentActivityBox = document.querySelector('.current-activity-box');
 var createNewBox = document.querySelector('.create-new-box');
-
 var currentActivity = document.querySelector('.current-activity');
 var newActivityBox = document.querySelector('.new-activity-box');
 var goal = document.querySelector('.place-holder');
@@ -37,10 +36,10 @@ meditate.addEventListener('click', changeMeditateColor);
 exercise.addEventListener('click', changeExerciseColor);
 minBox.addEventListener('keydown', preventE);
 secBox.addEventListener('keydown', preventE);
-startButton.addEventListener('click',startActivity);
+setActivity.addEventListener('click',startActivity);
 startTimerButton.addEventListener('click', countdown);
 logActivity.addEventListener('click', displayLogActivity);
-createNewButton.addEventListener('click', goHome)
+createNewButton.addEventListener('click', goHome);
 
 function startActivity() {
  if (goalBox.value === '') {
@@ -95,7 +94,7 @@ function changeMeditateColor() {
 }
 
 function changeExerciseColor() {
-    addHidden([exercisePreselectImage]);
+    addHidden([exercisePreselectImage, startTimerButton]);
     removeHidden([exerciseSelectedImage]);
     addExerciseColor([exercise]);
     startTimerButton.classList.add('exercise-colors');
@@ -151,8 +150,7 @@ function countdown() {
       stopTimer(interval);
       startTimerButton.innerText = 'COMPLETE';
       time.classList.add('hidden');
-      completionMessage.classList.remove('hidden');
-      logActivity.classList.remove('hidden');
+      removeHidden([completionMessage, logActivity]);
     } else if (seconds <= 0 && minutes > 0) {
     minutes--;
     seconds+= 59;
@@ -172,32 +170,21 @@ function stopTimer(interval) {
 }
 
 function displayLogActivity() {
-  var pastHold1 = document.querySelector('.past-holder-p1');
-  var pastHold2 = document.querySelector('.past-holder-p2');
-
-  pastHold1.classList.add('hidden');
-  pastHold2.classList.add('hidden');
-  pastCards.classList.remove('hidden');
-  currentActivityBox.classList.add('hidden');
-  createNewBox.classList.remove('hidden');
+  addHidden([document.querySelector('.past-holder-p1'), document.querySelector('.past-holder-p2'), currentActivityBox]);
+  removeHidden([pastCards, createNewBox]);
   leftHeader.innerText = 'Completed Activity';
-
   var stringifyPastCards = JSON.stringify('pastCards');
   localStorage.setItem('cards', stringifyPastCards);
   var retrievedPastCards = localStorage.getItem('cards');
   var parsedPastCards = JSON.parse(retrievedPastCards);
 }
 function goHome() {
-  createNewButton.classList.add('hidden');
-  newActivityBox.classList.remove('hidden');
-  createNewBox.classList.add('hidden');
-  leftHeader.classList.add('hidden');
   goalBox.value = "";
   minBox.value = "";
   secBox.value = "";
   study.classList.remove('study-colors');
   meditate.classList.remove('meditate-colors');
   exercise.classList.remove('exercise-colors');
-  addHidden([studySelectedImage, meditateSelectedImage, exerciseSelectedImage]);
-  removeHidden([studyPreselectImage, meditatePreselectImage, exercisePreselectImage]);
+  addHidden([studySelectedImage, meditateSelectedImage, exerciseSelectedImage, document.querySelector('.create-new-activity'), createNewBox, leftHeader]);
+  removeHidden([studyPreselectImage, meditatePreselectImage, exercisePreselectImage, newActivityBox]);
 }
