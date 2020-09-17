@@ -1,6 +1,6 @@
 # Project: Intention Timer - Group
 
->[Our Project Website](https://github.com/Max9545/intention-timer)
+>[Our Project Website](https://max9545.github.io/intention-timer/)
 
 ## Project Team 
 
