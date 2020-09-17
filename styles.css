@@ -230,7 +230,7 @@ header {
     flex-direction: row-reverse;
     padding-top: 5em;
 }
-.start-btn {
+.set-activity {
   border: none;
   border-radius: 5%;
   padding: 1.2em;
